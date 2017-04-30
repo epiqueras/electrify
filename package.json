@@ -6,12 +6,13 @@
   "scripts": {
     "precommit": "yarn lint",
     "prepush": "yarn lint",
-    "start": "rollup -c -w",
-    "build": "rollup -c",
+    "start": "babel ./src -d ./dist -w",
+    "build": "babel ./src -d ./dist",
     "clean": "rimraf ./dist",
     "lint": "xo",
     "prepublish": "yarn lint && yarn run clean && yarn run build"
   },
+  "bin": { "electrify": "dist/index.js" },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/epiqueras/electrify.git"
@@ -31,7 +32,7 @@
   "homepage": "https://github.com/epiqueras/electrify#readme",
   "xo": {
     "ignores": [
-      "built/**"
+      "template/**"
     ],
     "semicolon": false,
     "space": 2,
@@ -53,14 +54,15 @@
     }
   },
   "devDependencies": {
-    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-cli": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.4.0",
     "husky": "^0.13.3",
     "rimraf": "^2.6.1",
-    "rollup": "^0.41.6",
-    "rollup-plugin-babel": "^2.7.1",
-    "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-node-resolve": "^3.0.0",
     "xo": "^0.18.1"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "prompt": "^1.0.0"
   }
 }

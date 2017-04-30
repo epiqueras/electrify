@@ -1,7 +1,7 @@
 {
-  "name": "<% appName %>",
-  "version": "<% appVersion %>",
-  "description": "<% appDescription %>",
+  "name": "<% name %>",
+  "version": "<% version %>",
+  "description": "<% description %>",
   "main": "built/main.js",
   "scripts": {
     "precommit": "yarn lint",
@@ -20,10 +20,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<% appGHRepo %>.git"
+    "url": "git+https://github.com/<% githubRepo %>.git"
   },
-  "author": "<% appAuthor %>",
-  "license": "<% appLicense %>",
+  "author": "<% author %>",
+  "license": "<% license %>",
   "dependencies": {
     "electron-config": "^0.2.1",
     "electron-updater": "^1.14.2"

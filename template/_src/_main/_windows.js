@@ -4,7 +4,7 @@ import { readFileSync } from 'fs'
 
 export default function createWindow(windows, i, state = { width: 800, height: 600 }) {
   const userAgent = '<% userAgent %>'
-  const url = '<% URL %>'
+  const url = '<% websiteURL %>'
 
   windows[i] = new BrowserWindow({
     width: state.width,
@@ -14,7 +14,7 @@ export default function createWindow(windows, i, state = { width: 800, height: 6
     type: 'textured',
     backgroundColor: 'grey',
     show: false,
-    title: '<% appName %>',
+    title: '<% name %>',
     titleBarStyle: 'hidden-inset',
     autoHideMenuBar: true,
     webPreferences: {

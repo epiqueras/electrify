@@ -7,7 +7,7 @@ import initializeAutoUpdater from './auto-updater'
 import config from './config'
 
 // Respond to config requests
-ipcMain.on('getTheme', event => event.returnValue = config.get('crTheme'))
+ipcMain.on('getTheme', event => event.returnValue = config.get('theme'))
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected

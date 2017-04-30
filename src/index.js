@@ -1,1 +1,3 @@
-console.log('hello')
+#! /usr/bin/env node
+import 'babel-polyfill'
+import './start'

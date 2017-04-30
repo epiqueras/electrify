@@ -94,14 +94,14 @@ export default function createAppMenu(windows) {
   }
 
   // Check the current theme's radio button
-  const currentTheme = config.get('theme')
+  let currentTheme = config.get('theme')
   const menu = Menu.buildFromTemplate(menuTemplate)
   const themeSubmenuItems = menu.items.find(menuItem => menuItem.label === 'Theme').submenu.items
   let themeButton = themeSubmenuItems.find(subMenuItem => subMenuItem.label === currentTheme)
   if (!currentTheme) { // Another electron app may have override the development config
     config.set('theme', 'default')
     currentTheme = 'default'
-    let themeButton = themeSubmenuItems.find(subMenuItem => subMenuItem.label === currentTheme)
+    themeButton = themeSubmenuItems.find(subMenuItem => subMenuItem.label === currentTheme)
   }
   themeButton.checked = true
 
