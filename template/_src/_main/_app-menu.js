@@ -98,7 +98,7 @@ export default function createAppMenu(windows) {
   const menu = Menu.buildFromTemplate(menuTemplate)
   const themeSubmenuItems = menu.items.find(menuItem => menuItem.label === 'Theme').submenu.items
   let themeButton = themeSubmenuItems.find(subMenuItem => subMenuItem.label === currentTheme)
-  if (!currentTheme) { // Another electron app may have override the development config
+  if (!themeButton) { // Another electron app may have override the development config
     config.set('theme', 'default')
     currentTheme = 'default'
     themeButton = themeSubmenuItems.find(subMenuItem => subMenuItem.label === currentTheme)

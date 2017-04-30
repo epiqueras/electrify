@@ -18,6 +18,7 @@ export default function createWindow(windows, i, state = { width: 800, height: 6
     titleBarStyle: 'hidden-inset',
     autoHideMenuBar: true,
     webPreferences: {
+      preload: join(__dirname, '../renderer/index.js'),
       nodeIntegration: false,
     },
   })
@@ -29,12 +30,8 @@ export default function createWindow(windows, i, state = { width: 800, height: 6
   })
 
   windows[i].webContents.on('dom-ready', () => {
-    // Add webpack dev server url in development and local build in production
-    const devScript = `const script = document.createElement('script');script.setAttribute('src','http://localhost:8080/renderer.js');document.head.appendChild(script);`
-    windows[i].webContents.executeJavaScript(process.env.NODE_ENV === 'development' ? devScript : readFileSync(join(__dirname, './renderer.js'), 'utf8'))
-    .then(() => {
-      windows[i].show()
-    })
+    windows[i].webContents.insertCSS(readFileSync(join(__dirname, '../renderer/styles/index.css'), 'utf8'))
+    windows[i].show()
   })
 
   // Open links in external applications

@@ -1,3 +1,7 @@
+body {
+  -webkit-app-region: drag !important;
+}
+
 ::-webkit-scrollbar {
   display: none !important;
 }
