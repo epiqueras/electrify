@@ -4,6 +4,7 @@
   "description": "<% description %>",
   "main": "built/main/index.js",
   "scripts": {
+    "lint": "xo && stylelint './src/renderer/styles/**/*.scss' --syntax scss",
     "precommit": "yarn lint",
     "prepush": "yarn lint",
     "start:babel": "babel ./src -d ./built -s -w",
@@ -11,7 +12,6 @@
     "start:electron": "NODE_ENV=development electron ./built/main/index.js",
     "start": "concurrently 'yarn run start:babel' 'yarn run start:sass' 'yarn run start:electron'",
     "clean": "rimraf ./built && rimraf ./dist",
-    "lint": "xo && stylelint './src/renderer/styles/**/*.scss' --syntax scss",
     "build:all": "babel ./src -d built && node-sass ./src/renderer/styles/index.scss -o ./built/renderer/styles/",
     "build": "yarn run clean && yarn lint && yarn run build:all",
     "pack": "yarn run build && build --dir",
