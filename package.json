@@ -1,5 +1,5 @@
 {
-  "name": "electrify",
+  "name": "electrifyjs",
   "version": "0.5.0",
   "description": "A scaffolding tool for making desktop apps from websites.",
   "main": "dist/index.js",
