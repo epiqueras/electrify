@@ -1,0 +1,13 @@
+@mixin themify ($themes: $themes) {
+  @each $theme, $colors in $themes {
+    $current-theme: $colors !global;
+
+    .#{$theme} & { @content; }
+
+    $current-theme: null !global;
+  }
+}
+
+@function theme($var) {
+  @return map-get($current-theme, $var);
+}

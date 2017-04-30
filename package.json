@@ -1,0 +1,66 @@
+{
+  "name": "electrify",
+  "version": "0.5.0",
+  "description": "A scaffolding tool for making desktop apps from websites.",
+  "main": "dist/index.js",
+  "scripts": {
+    "precommit": "yarn lint",
+    "prepush": "yarn lint",
+    "start": "rollup -c -w",
+    "build": "rollup -c",
+    "clean": "rimraf ./dist",
+    "lint": "xo",
+    "prepublish": "yarn lint && yarn run clean && yarn run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epiqueras/electrify.git"
+  },
+  "keywords": [
+    "Electron",
+    "Generator",
+    "Boilerplate",
+    "Desktop",
+    "App"
+  ],
+  "author": "epiqueras",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/epiqueras/electrify/issues"
+  },
+  "homepage": "https://github.com/epiqueras/electrify#readme",
+  "xo": {
+    "ignores": [
+      "built/**"
+    ],
+    "semicolon": false,
+    "space": 2,
+    "rules": {
+      "curly": [
+        "error",
+        "multi-line"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "no-return-assign": "off",
+      "import/no-unassigned-import": "off"
+    }
+  },
+  "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.4.0",
+    "husky": "^0.13.3",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "xo": "^0.18.1"
+  }
+}

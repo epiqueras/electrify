@@ -1,0 +1,79 @@
+{
+  "name": "<% appName %>",
+  "version": "<% appVersion %>",
+  "description": "<% appDescription %>",
+  "main": "built/main.js",
+  "scripts": {
+    "precommit": "yarn lint",
+    "prepush": "yarn lint",
+    "start:renderer": "webpack-dev-server --config ./webpack.config.dev.renderer.js",
+    "start:main": "webpack --config ./webpack.config.dev.main.js -w",
+    "start:electron": "NODE_ENV=development electron ./built/main.js",
+    "start": "concurrently 'yarn run start:renderer' 'yarn run start:main' 'yarn run start:electron'",
+    "clean": "rimraf ./built && rimraf ./dist",
+    "lint": "xo && stylelint './src/renderer/styles/**/*.scss' --syntax scss",
+    "build:all": "webpack --config ./webpack.config.prod.js",
+    "build": "yarn run clean && yarn lint && yarn run build:all",
+    "pack": "yarn run build && build --dir",
+    "dist": "yarn run build && build -mw",
+    "dist:release": "./publish.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<% appGHRepo %>.git"
+  },
+  "author": "<% appAuthor %>",
+  "license": "<% appLicense %>",
+  "dependencies": {
+    "electron-config": "^0.2.1",
+    "electron-updater": "^1.14.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
+    "concurrently": "^3.4.0",
+    "css-loader": "^0.28.0",
+    "electron": "^1.6.6",
+    "electron-builder": "^17.1.1",
+    "husky": "^0.13.3",
+    "node-sass": "^4.5.2",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.5",
+    "xo": "^0.18.1"
+  },
+  "xo": {
+    "ignores": [
+      "built/**"
+    ],
+    "semicolon": false,
+    "space": 2,
+    "rules": {
+      "curly": [
+        "error",
+        "multi-line"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "no-return-assign": "off",
+      "import/no-unassigned-import": "off"
+    }
+  },
+  "build": {
+    "appId": "<% appID %>",
+    "mac": {
+      "category": "<% appCategory %>"
+    }
+  }
+}
