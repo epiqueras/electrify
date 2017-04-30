@@ -1,5 +1,4 @@
 import { app, Menu, ipcMain } from 'electron'
-import { join } from 'path'
 
 import createWindow from './windows'
 import createAppMenu from './app-menu'

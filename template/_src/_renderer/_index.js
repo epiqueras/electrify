@@ -1,4 +1,4 @@
-/* global window, document */
+/* global document */
 import { ipcRenderer } from 'electron'
 
 document.addEventListener('DOMContentLoaded', () => {
