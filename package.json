@@ -1,6 +1,6 @@
 {
   "name": "electrifyjs",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "A scaffolding tool for making desktop apps from websites.",
   "main": "dist/index.js",
   "files": [
