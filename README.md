@@ -6,7 +6,7 @@ Electrify is a Command Line Tool that creates a project with everything you need
 <br>
 
 ## Installation
-`yarn global add electrifyjs`.
+`npm install --global electrifyjs`.
 
 <br>
 
