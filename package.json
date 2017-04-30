@@ -1,6 +1,6 @@
 {
   "name": "electrifyjs",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "A scaffolding tool for making desktop apps from websites.",
   "main": "dist/index.js",
   "files": [
@@ -17,7 +17,9 @@
     "clean": "rimraf ./dist",
     "prepublish": "yarn lint && yarn run clean && yarn run build"
   },
-  "bin": { "electrify": "dist/index.js" },
+  "bin": {
+    "electrify": "dist/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/epiqueras/electrify.git"
@@ -60,13 +62,13 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.4.0",
     "husky": "^0.13.3",
     "rimraf": "^2.6.1",
     "xo": "^0.18.1"
   },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "colors": "^1.1.2",
     "prompt": "^1.0.0"
   }
