@@ -1,5 +1,5 @@
 # Electrify
-> Scaffolding Tool for turning websites into native desktop apps using electron.
+> Scaffolding Tool for turning websites into desktop apps using electron.
 
 Electrify is a Command Line Tool that creates a project with everything you need to make a themable desktop app from a website like [caprine](https://github.com/sindresorhus/caprine) or [ramme](https://github.com/terkelg/ramme).
 
